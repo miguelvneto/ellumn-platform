@@ -15,6 +15,26 @@ The platform combines event management, athlete and competition workflows, live 
 
 I designed and implemented the platform end-to-end, including application architecture, backend APIs, database modeling, authentication, authorization, external integrations, deployment, and production support.
 
+## Product Preview
+
+### User Experience
+
+The public experience allows users to discover scheduled events, live broadcasts, and replay content.
+
+![Ellumn home experience](assets/01-home.png)
+
+### Event Discovery
+
+Events can be explored and filtered by availability, sport, category, location, and broadcast status.
+
+![Ellumn event discovery](assets/02-explore.png)
+
+### Live Production & Scoreboard Operations
+
+The production interface combines camera switching, live-program control, sport-specific scoreboards, timers, remote scoreboard operation, and broadcast lifecycle controls.
+
+![Ellumn live production workflow](assets/03-live-production.png)
+
 ## Tech Stack
 
 ### Application
