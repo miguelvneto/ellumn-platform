@@ -38,12 +38,14 @@ The production interface combines camera switching, live-program control, sport-
 ## Tech Stack
 
 ### Application
+
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
 
 ### Backend & Data
+
 - Next.js API routes
 - Supabase
 - PostgreSQL
@@ -51,12 +53,14 @@ The production interface combines camera switching, live-program control, sport-
 - Database migrations
 
 ### Streaming & Integrations
+
 - LiveKit
 - YouTube / Google APIs
 - Multi-camera streaming workflows
 - Live broadcast management
 
 ### Infrastructure & Operations
+
 - Vercel
 - Environment-based configuration
 - Analytics and performance monitoring
@@ -97,32 +101,31 @@ Ellumn uses a web-first architecture that combines application logic, persistent
 
 ```mermaid
 flowchart LR
-    U[Users & Operators]
+    U["Users & Operators"]
 
-    U --> APP[Next.js / React Application]
+    U --> APP["Next.js / React Application"]
 
-    APP --> AUTH[Authentication & Authorization]
-    APP --> API[Backend API Routes]
+    APP --> AUTH["Authentication & Authorization"]
+    APP --> API["Backend API Routes"]
+    APP --> OPS["Scoreboard & Operator Workflows"]
+    APP --> DEPLOY["Vercel"]
 
-    AUTH --> SUPA[Supabase]
+    AUTH --> SUPA["Supabase"]
     API --> SUPA
 
-    SUPA --> DB[(PostgreSQL)]
+    SUPA --> DB[("PostgreSQL")]
 
-    API --> LIVE[LiveKit]
-    API --> YT[YouTube / Google APIs]
+    API --> LIVE["LiveKit"]
+    API --> YT["YouTube / Google APIs"]
 
-    LIVE --> STREAM[Live Video & Multi-Camera Workflows]
-    YT --> BROADCAST[Broadcast Publishing & Synchronization]
-
-    APP --> OPS[Scoreboard & Operator Workflows]
-
-    APP --> DEPLOY[Vercel]
+    LIVE --> STREAM["Live Video & Multi-Camera Workflows"]
+    YT --> BROADCAST["Broadcast Publishing & Synchronization"]
+```
 
 ### Architectural Responsibilities
 
 - **Next.js / React** — user-facing application, dashboards, operator interfaces, and server-side application logic
-- **Backend API routes** — application workflows and integrations
+- **Backend API routes** — application workflows and external integrations
 - **Supabase / PostgreSQL** — authentication, persistent data, relational modeling, and migrations
 - **LiveKit** — real-time video and multi-camera workflows
 - **YouTube / Google APIs** — broadcast integration and synchronization
@@ -157,3 +160,32 @@ Ellumn integrates with external services such as LiveKit and YouTube / Google AP
 ### Production & Continuous Evolution
 
 The production codebase is actively maintained and continuously evolves as new product capabilities, streaming workflows, competition features, and operational improvements are introduced.
+
+## Why the Production Repository Is Private
+
+Ellumn is an active production platform.
+
+The production source code and infrastructure configuration remain private to avoid exposing:
+
+- Authentication and authorization internals
+- Database and security policies
+- Private API integrations
+- Infrastructure configuration
+- Operational implementation details
+- Production credentials and environment configuration
+
+This repository focuses instead on architecture, engineering decisions, product capabilities, and selected technical evidence.
+
+## Current Development
+
+The production codebase is under active development and receives frequent updates as new capabilities, integrations, streaming workflows, and operational improvements are introduced.
+
+## About the Developer
+
+Built independently by **Miguel Vieira Neto**.
+
+Senior Software Engineer & Technical Lead with experience across backend systems, PostgreSQL, cloud infrastructure, production systems, web applications, and technical leadership.
+
+- GitHub: https://github.com/miguelvneto
+- LinkedIn: https://www.linkedin.com/in/miguel-neto1
+- Platform: https://ellumn.com
