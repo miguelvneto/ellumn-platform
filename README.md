@@ -93,24 +93,28 @@ As the independent developer of the platform, I have worked across:
 
 ## Architecture
 
-A simplified architecture diagram will be added here.
+Ellumn uses a web-first architecture that combines application logic, persistent data, authentication, real-time video infrastructure, and external streaming integrations.
 
-The production architecture includes:
+```mermaid
+flowchart LR
+    U[Users & Operators]
 
-```text
-Users
-  |
-  v
-Next.js Application
-  |
-  +--> Authentication / Authorization
-  |
-  +--> Backend API Routes
-  |       |
-  |       +--> Supabase / PostgreSQL
-  |       +--> YouTube APIs
-  |       +--> LiveKit
-  |
-  +--> Streaming & Operator Workflows
-  |
-  +--> Vercel Production Deployment
+    U --> APP[Next.js / React Application]
+
+    APP --> AUTH[Authentication & Authorization]
+    APP --> API[Backend API Routes]
+
+    AUTH --> SUPA[Supabase]
+    API --> SUPA
+
+    SUPA --> DB[(PostgreSQL)]
+
+    API --> LIVE[LiveKit]
+    API --> YT[YouTube / Google APIs]
+
+    LIVE --> STREAM[Live Video & Multi-Camera Workflows]
+    YT --> BROADCAST[Broadcast Publishing & Synchronization]
+
+    APP --> OPS[Scoreboard & Operator Workflows]
+
+    APP --> DEPLOY[Vercel]
