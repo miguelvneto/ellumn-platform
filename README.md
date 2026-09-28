@@ -118,3 +118,42 @@ flowchart LR
     APP --> OPS[Scoreboard & Operator Workflows]
 
     APP --> DEPLOY[Vercel]
+
+### Architectural Responsibilities
+
+- **Next.js / React** — user-facing application, dashboards, operator interfaces, and server-side application logic
+- **Backend API routes** — application workflows and integrations
+- **Supabase / PostgreSQL** — authentication, persistent data, relational modeling, and migrations
+- **LiveKit** — real-time video and multi-camera workflows
+- **YouTube / Google APIs** — broadcast integration and synchronization
+- **Vercel** — production deployment and application delivery
+
+## Engineering Decisions & Challenges
+
+Building Ellumn as an end-to-end production platform required solving problems across application development, data modeling, streaming, integrations, and operations.
+
+### Real-Time Video Workflows
+
+Live video is handled through LiveKit, supporting camera participation and production workflows while keeping broadcast control separated from the public viewing experience.
+
+### Multi-Camera Production
+
+The production interface was designed to allow operators to manage connected cameras, select the program feed, control audio sources, and coordinate live broadcast operations from a unified interface.
+
+### Sport-Specific Scoreboards
+
+The platform includes scoreboard workflows that can adapt to different sports and competition formats, including timers, scoring rules, penalties, advantages, and remote operator controls.
+
+### Data & Application Architecture
+
+PostgreSQL is used as the relational data layer, with Supabase supporting authentication, authorization, and application data workflows.
+
+Database evolution is managed through migrations to keep application changes reproducible across environments.
+
+### External Integrations
+
+Ellumn integrates with external services such as LiveKit and YouTube / Google APIs while keeping credentials and sensitive configuration isolated through environment-based configuration.
+
+### Production & Continuous Evolution
+
+The production codebase is actively maintained and continuously evolves as new product capabilities, streaming workflows, competition features, and operational improvements are introduced.
